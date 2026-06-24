@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="ms">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI Video Gallery | ChibiChubu</title>
+    <meta
+      name="description"
+      content="Preview gallery untuk koleksi video AI oleh ChibiChubu."
+    />
+    <meta property="og:title" content="AI Video Gallery | ChibiChubu" />
+    <meta
+      property="og:description"
+      content="Preview gallery untuk koleksi video AI."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="assets/thumbs/ahmad-firdaus.jpg" />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar" aria-label="Site header">
+      <a class="brand" href="./" aria-label="AI Video Gallery home">
+        <span class="brand-mark">CC</span>
+        <span>
+          <strong>ChibiChubu</strong>
+          <small>AI Video Gallery</small>
+        </span>
+      </a>
+      <nav class="nav-actions" aria-label="Gallery links">
+        <a href="https://github.com/ChibiChubu" rel="noreferrer">GitHub</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="feature" aria-labelledby="feature-title">
+        <div class="feature-media">
+          <video
+            id="featureVideo"
+            poster="assets/thumbs/ahmad-firdaus.jpg"
+            src="assets/videos/ahmad-firdaus.mp4"
+            muted
+            loop
+            playsinline
+            autoplay
+          ></video>
+          <div class="feature-shade"></div>
+        </div>
+        <div class="feature-copy">
+          <p class="eyebrow">Featured Preview</p>
+          <h1 id="feature-title">Ahmad Firdaus</h1>
+          <p class="feature-meta">02:25 - cinematic AI video</p>
+          <button class="primary-action" type="button" data-feature-play>
+            Play
+          </button>
+        </div>
+      </section>
+
+      <section class="gallery-shell" aria-labelledby="gallery-title">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Collection</p>
+            <h2 id="gallery-title">AI Video Showcase</h2>
+          </div>
+          <label class="search">
+            <span class="sr-only">Cari video</span>
+            <input id="searchInput" type="search" placeholder="Search video" />
+          </label>
+        </div>
+
+        <div class="chips" aria-label="Filter video">
+          <button class="chip is-active" type="button" data-filter="all">All</button>
+          <button class="chip" type="button" data-filter="short">Short</button>
+          <button class="chip" type="button" data-filter="cinematic">Cinematic</button>
+          <button class="chip" type="button" data-filter="game">Game</button>
+        </div>
+
+        <div class="gallery-grid" id="galleryGrid" aria-live="polite"></div>
+      </section>
+    </main>
+
+    <dialog class="player-dialog" id="playerDialog" aria-label="Video player">
+      <div class="player-frame">
+        <button class="close-button" type="button" data-close aria-label="Close">
+          x
+        </button>
+        <video id="modalVideo" controls playsinline></video>
+      </div>
+      <div class="player-caption">
+        <h3 id="modalTitle"></h3>
+        <p id="modalMeta"></p>
+      </div>
+    </dialog>
+
+    <script src="script.js"></script>
+  </body>
+</html>
