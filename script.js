@@ -1,12 +1,5 @@
 const videos = [
   {
-    title: "Ahmad Firdaus",
-    file: "assets/videos/ahmad-firdaus.mp4",
-    poster: "assets/thumbs/ahmad-firdaus.jpg",
-    duration: "02:25",
-    type: "cinematic",
-  },
-  {
     title: "Satria14",
     file: "assets/videos/satria14.mp4",
     poster: "assets/thumbs/satria14.jpg",
@@ -40,6 +33,13 @@ const videos = [
     poster: "assets/thumbs/unreal-engine-test.jpg",
     duration: "01:05",
     type: "game",
+  },
+  {
+    title: "Ahmad Firdaus",
+    file: "assets/videos/ahmad-firdaus.mp4",
+    poster: "assets/thumbs/ahmad-firdaus.jpg",
+    duration: "02:25",
+    type: "cinematic",
   },
   {
     title: "AI Clip 1",
