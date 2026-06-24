@@ -1,6 +1,8 @@
 const videos = [
   {
     title: "Satria14",
+    displayTitle: "Satria 14",
+    author: "Muhammad Hafiz",
     file: "assets/videos/satria14.mp4",
     poster: "assets/thumbs/satria14.jpg",
     duration: "03:22",
@@ -8,6 +10,7 @@ const videos = [
   },
   {
     title: "Suramala",
+    author: "Muhammad Hafiz",
     file: "assets/videos/suramala.mp4",
     poster: "assets/thumbs/suramala.jpg",
     duration: "03:17",
@@ -15,6 +18,7 @@ const videos = [
   },
   {
     title: "Red Ops",
+    author: "Muhammad Hafiz",
     file: "assets/videos/red-ops.mp4",
     poster: "assets/thumbs/red-ops.jpg",
     duration: "02:40",
@@ -22,6 +26,7 @@ const videos = [
   },
   {
     title: "Mega Transform",
+    author: "Muhammad Hafiz",
     file: "assets/videos/mega-transform.mp4",
     poster: "assets/thumbs/mega-transform.jpg",
     duration: "02:08",
@@ -29,6 +34,7 @@ const videos = [
   },
   {
     title: "Unreal Engine Test",
+    author: "Muhammad Hafiz",
     file: "assets/videos/unreal-engine-test.mp4",
     poster: "assets/thumbs/unreal-engine-test.jpg",
     duration: "01:05",
@@ -36,6 +42,7 @@ const videos = [
   },
   {
     title: "Ahmad Firdaus",
+    author: "Ahmad Firdaus",
     file: "assets/videos/ahmad-firdaus.mp4",
     poster: "assets/thumbs/ahmad-firdaus.jpg",
     duration: "02:25",
@@ -43,6 +50,8 @@ const videos = [
   },
   {
     title: "AI Clip 1",
+    displayTitle: "Ai Clip 1",
+    author: "Ahmad Firdaus",
     file: "assets/videos/1.mp4",
     poster: "assets/thumbs/1.jpg",
     duration: "00:10",
@@ -50,6 +59,8 @@ const videos = [
   },
   {
     title: "AI Clip 2",
+    displayTitle: "Ai Clip 2",
+    author: "Ahmad Firdaus",
     file: "assets/videos/2.mp4",
     poster: "assets/thumbs/2.jpg",
     duration: "00:10",
@@ -57,6 +68,8 @@ const videos = [
   },
   {
     title: "AI Clip 3",
+    displayTitle: "Ai Clip 3",
+    author: "Ahmad Firdaus",
     file: "assets/videos/3.mp4",
     poster: "assets/thumbs/3.jpg",
     duration: "00:10",
@@ -82,6 +95,10 @@ function tagLabel(type) {
   return "Cinematic";
 }
 
+function titleLabel(video) {
+  return video.displayTitle || video.title;
+}
+
 function renderGallery() {
   const query = searchInput.value.trim().toLowerCase();
   const filtered = videos.filter((video) => {
@@ -95,11 +112,12 @@ function renderGallery() {
       (video, index) => `
         <article class="video-card" tabindex="0" role="button" data-index="${videos.indexOf(video)}">
           <div class="poster">
-            <img src="${video.poster}" alt="${video.title} poster" loading="${index < 4 ? "eager" : "lazy"}" />
+            <img src="${video.poster}" alt="${titleLabel(video)} poster" loading="${index < 4 ? "eager" : "lazy"}" />
             <span class="duration">${video.duration}</span>
           </div>
           <div class="card-body">
-            <h3>${video.title}</h3>
+            <h3>${titleLabel(video)}</h3>
+            <p>by ${video.author}</p>
             <p><span class="tag ${video.type === "game" ? "game" : ""}">${tagLabel(video.type)}</span> - AI video</p>
           </div>
         </article>
@@ -112,7 +130,7 @@ function openPlayer(video) {
   modalVideo.pause();
   modalVideo.src = video.file;
   modalVideo.poster = video.poster;
-  modalTitle.textContent = video.title;
+  modalTitle.textContent = `${titleLabel(video)} by ${video.author}`;
   modalMeta.textContent = `${video.duration} - ${tagLabel(video.type)}`;
   dialog.showModal();
   modalVideo.play().catch(() => {});
