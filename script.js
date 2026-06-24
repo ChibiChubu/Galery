@@ -142,7 +142,10 @@ chips.forEach((chip) => {
 
 searchInput.addEventListener("input", renderGallery);
 
-featurePlay.addEventListener("click", () => openPlayer(videos[0]));
+featurePlay.addEventListener("click", () => {
+  const featured = videos.find((video) => video.title === "Suramala");
+  openPlayer(featured);
+});
 
 closeButton.addEventListener("click", () => dialog.close());
 
