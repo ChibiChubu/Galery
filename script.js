@@ -66,15 +66,6 @@ const videos = [
     duration: "00:10",
     type: "short",
   },
-  {
-    title: "AI Clip 3",
-    displayTitle: "Ai Clip 3",
-    author: "Ahmad Firdaus",
-    file: "assets/videos/3.mp4",
-    poster: "assets/thumbs/3.jpg",
-    duration: "00:10",
-    type: "short",
-  },
 ];
 
 const grid = document.querySelector("#galleryGrid");
